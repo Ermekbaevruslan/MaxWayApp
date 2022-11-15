@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:maxwayy/func.dart';
+import 'package:maxwayy/burger.dart';
+import 'package:maxwayy/burger2.dart';
 import 'package:maxwayy/my_home_page.dart';
 import 'package:maxwayy/my_orders.dart';
 import 'package:maxwayy/my_profil.dart';
+import 'package:maxwayy/profil.page/edit_profile.dart';
 import 'package:maxwayy/profil.page/maksi_populyarniy.dart';
 
-import 'home page/maxway1.dart';
-import 'home page/maxway2.dart';
-import 'home page/maxway3.dart';
+import 'my_home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,14 +34,14 @@ class RouteGenerator{
     switch (settings.name) {
       case '/':
       return MaterialPageRoute(builder: ((context)=> HomePage()));
-         case '/MyHome1':
-      return MaterialPageRoute(builder: ((context)=> MyHome1()));
-        case '/MyHome2':
-      return MaterialPageRoute(builder: ((context)=> MyHome2()));
-       case '/MyHome3':
-      return MaterialPageRoute(builder: ((context)=> MyHome3()));
-       case '/Populyarniy':
-      return MaterialPageRoute(builder: ((context)=> Populyarniy()));
+      case '/Profil':
+      return MaterialPageRoute(builder: ((context)=> Profil()));
+       case '/MyBurger':
+      return MaterialPageRoute(builder: ((context)=> MyBurger()));
+          case '/MyBurger2':
+      return MaterialPageRoute(builder: ((context)=> MyBurger2()));
+      case '/EditProfil':
+      return MaterialPageRoute(builder: ((context)=> EditProfil()));
     }
     return null;
   }
@@ -61,9 +61,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState(){
     pages =[
-    MyHomePage(),
-    MyOrders(),
-    Profil()
+    MyHomePage2(),
+    Buyurtma(),
+    Profil(),
     ];
     activePage = 0;
     setState(() {  });
@@ -72,20 +72,25 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
     body: pages[activePage],
-
+ 
     bottomNavigationBar: BottomNavigationBar(
+      fixedColor: Color(0xff51267D),
       currentIndex: activePage,
       onTap: ((value) {
         activePage =value;
         setState(() { });
-        debugPrint(value.toString());
-      }),
+           }),
       items: [
-        BottomNavigationBarItem(icon: Icon(CupertinoIcons.home),label:'Главная'),
-        BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined),label:'Мои заказы'),
-        BottomNavigationBarItem(icon: Icon(Icons.person_outline_sharp),label:'Личное'),
-        
-      ]),
+        BottomNavigationBarItem(
+          activeIcon: Image(image: AssetImage("assets/active_home.png",)),
+          icon: Image(image: AssetImage("assets/Home.png")),label: "Главная",),
+        BottomNavigationBarItem(
+          activeIcon: Image(image: AssetImage("assets/active_buy.png",)),
+          icon: Image(image: AssetImage("assets/buy.png")),label: "Мои заказы" ),
+        BottomNavigationBarItem(
+          activeIcon: Image(image: AssetImage("assets/active_profile.png",)),
+          icon: Image(image: AssetImage("assets/Profile.jpg")),label: "Личное" ),
+        ]),
       
     
     );

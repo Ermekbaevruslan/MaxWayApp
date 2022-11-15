@@ -1,4 +1,4 @@
-#Tue Nov 08 15:54:01 UZT 2022
-base.0=C\:\\Flutter_lesson\\maxwayy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Tue Nov 15 18:03:16 UZT 2022
+base.0=C\:\\Users\\hp\\Desktop\\Flutter_lesson\\maxwayy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
